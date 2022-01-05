@@ -42,10 +42,10 @@ def start_pannel():
             InlineKeyboardButton(text="ᴜᴘᴅᴀᴛᴇs", url=f"https://t.me/{CHANNEL}"),
         ],
         [
-            InlineKeyboardButton("📚 ᴄᴏᴍᴍᴀɴᴅ​ 📚", url="https://telegra.ph/ҡʏʏ-ᴇx-12-15"),
+            InlineKeyboardButton("📚 ᴄᴏᴍᴍᴀɴᴅ​ 📚", url="https://t.me/Dost_hai_sab"),
         ],
         [
-            InlineKeyboardButton("🌐 sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ 🌐", url="https://github.com/muhammadrizky16/KyyMusic"),
+            InlineKeyboardButton("🌐 sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ 🌐", url="https://xxnx.com"),
         ],
     ]
     return (
@@ -65,10 +65,10 @@ pstart_markup = InlineKeyboardMarkup(
             InlineKeyboardButton("✨ ᴜᴘᴅᴀᴛᴇs", url=f"https://t.me/{CHANNEL}"),
         ],
         [
-            InlineKeyboardButton("📚 ᴄᴏᴍᴍᴀɴᴅ ​📚", url="https://telegra.ph/ҡʏʏ-ᴇx-12-15"),
+            InlineKeyboardButton("📚 ᴄᴏᴍᴍᴀɴᴅ ​📚", url="https://t.me/Dost_hai_sab"),
         ],
         [
-            InlineKeyboardButton("🌐 sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ 🌐", url="https://github.com/muhammadrizky16/KyyMusic"),
+            InlineKeyboardButton("🌐 sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ 🌐", url="https://xxnx.com"),
         ],
     ]
 )
@@ -82,11 +82,11 @@ async def welcome(_, message: Message):
         try:
             if member.id in OWNER:
                 return await message.reply_text(
-                    f"💡 Pemilik Bot [{member.mention}] baru saja bergabung di grup ini."
+                    f"💡 Bot owner [{member.mention}] just joined this group."
                 )
             if member.id in SUDOERS:
                 return await message.reply_text(
-                    f"💡 Admin Bot [{member.mention}] baru saja bergabung di grup ini."
+                    f"💡 Admin Bot [{member.mention}] just joined this group."
                 )
             if member.id == ASSID:
                 await remove_active_chat(chat_id)
@@ -94,9 +94,9 @@ async def welcome(_, message: Message):
                 out = start_pannel()
                 await message.reply_text(
                     f"""
-👋 ** Halo senang rasanya bisa bergabung di grup ini**
+👋 ** Hello, it's nice to be able to join this group **
 
-💡 **Jangan lupa untuk menjadikan saya sebagai admin di grup ini**
+💡 **Don't forget to make me an admin in this group**
 """,
                     reply_markup=InlineKeyboardMarkup(out[1]),
                     disable_web_page_preview=True
@@ -117,10 +117,10 @@ async def start(_, message: Message):
     out = start_pannel()
     await message.reply_text(
         f"""
-Terima kasih telah memasukkan saya di {message.chat.title}.
-Musik itu hidup.
+Thanks for including me on {message.chat.title}.
+Music is alive.
 
-Untuk bantuan silahkan klik tombol dibawah.
+For assistance please click the button below.
 """,
         reply_markup=InlineKeyboardMarkup(out[1]),
         disable_web_page_preview=True
@@ -137,11 +137,11 @@ async def play(_, message: Message):
         await app.send_message(
             message.chat.id,
             text=f"""
-**✨ Selamat Datang {rpk}!
+**✨ Welcome {rpk}!
 
-💬 [{BOT_NAME}](tg://user?id=2129034376) memungkinkan anda untuk memutar musik pada grup melalui obrolan suara yang baru di Telegram!
+💬 [{BOT_NAME}](tg://user?id=2129034376) Allows you to play music in groups via voice chat which is new on Telegram!
 
-💡 Untuk Mengetahui Semua Perintah Bot Dan Bagaimana Cara Kerja Nya Dengan Menekan Tombol » 📚 ᴄᴏᴍᴍᴀɴᴅ​!**
+💡 To Know All Bot Commands And How It Works With The Press Of A Button » 📚 ᴄᴏᴍᴍᴀɴᴅ​!**
 
 """,
             parse_mode="markdown",
@@ -163,15 +163,15 @@ async def play(_, message: Message):
             searched_text = f"""
 🔍 **Video Track Information**
 
-❇️**Judul:** {x["title"]}
+❇️**Title:** {x["title"]}
 
-⏳ **Durasi:** {round(x["duration"] / 60)} Mins
-👀 **Ditonton:** `{x["view_count"]}`
-👍 **Suka:** `{x["like_count"]}`
-👎 **Tidak suka:** `{x["dislike_count"]}`
-⭐️ **Peringkat Rata-rata:** {x["average_rating"]}
-🎥 **Nama channel:** {x["uploader"]}
-📎 **Channel Link:** [Kunjungi Dari Sini]({x["channel_url"]})
+⏳ **Duration:** {round(x["duration"] / 60)} Mins
+👀 **Watched:** `{x["view_count"]}`
+👍 **Likes:** `{x["like_count"]}`
+👎 **Dislikes:** `{x["dislike_count"]}`
+⭐️ **Average Rating:** {x["average_rating"]}
+🎥 **Channel name:** {x["uploader"]}
+📎 **Channel Link:** [Visit From Here]({x["channel_url"]})
 🔗 **Link:** [Link]({x["webpage_url"]})
 """
             link = x["webpage_url"]
@@ -187,7 +187,7 @@ async def play(_, message: Message):
             )
         if str(finxx) == "sud":
             sudoers = await get_sudoers()
-            text = "**📝 DAFTAR PENGGUNA SUDO**\n\n"
+            text = "**📝 SUDO USER LIST**\n\n"
             for count, user_id in enumerate(sudoers, 1):
                 try:
                     user = await app.get_users(user_id)
@@ -196,7 +196,7 @@ async def play(_, message: Message):
                     continue
                 text += f"- {user}\n"
             if not text:
-                await message.reply_text("Tidak Ada Pengguna Sudo")
+                await message.reply_text("No Sudo User")
             else:
                 await message.reply_text(text)
 
@@ -224,7 +224,7 @@ async def okaybhai(_, CallbackQuery):
     await CallbackQuery.answer("Going Back ...")
     out = start_pannel()
     await CallbackQuery.edit_message_text(
-        text=f"Terimakasih telah menambahkan saya di {CallbackQuery.message.chat.title}.\n{BOT_NAME} Telah online.\n\nJika butuh bantuan atau terjadi masalah dengan Bot silahkan bergabung di group atau channel kami.",
+        text=f"Thank you for adding me to {CallbackQuery.message.chat.title}.\n{BOT_NAME} I'm online.\n\nIf you need help or there is a problem with the bot, please join our group or channel..",
         reply_markup=InlineKeyboardMarkup(out[1]),
     )
 
